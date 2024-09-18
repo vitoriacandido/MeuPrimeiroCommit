@@ -1,0 +1,43 @@
+using System;
+
+namespace CalculadoraImposto
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Solicitar ao usuário o valor do salário
+            Console.Write("Digite o valor do salário: R$ ");
+            string input = Console.ReadLine();
+            double salario;
+
+            // Verificar se a entrada é um número válido
+            if (double.TryParse(input, out salario))
+            {
+                // Calcular o imposto baseado na faixa salarial
+                double imposto = 0;
+
+                if (salario <= 3000)
+                {
+                    imposto = salario * 0.10;
+                }
+                else if (salario <= 6000)
+                {
+                    imposto = salario * 0.15;
+                }
+                else
+                {
+                    imposto = salario * 0.20;
+                }
+
+                // Exibir o valor do imposto calculado
+                Console.WriteLine($"O imposto de renda a ser pago é: R$ {imposto:F2}");
+            }
+            else
+            {
+                // Mensagem de erro para entrada inválida
+                Console.WriteLine("Entrada inválida. Por favor, digite um número válido para o salário.");
+            }
+        }
+    }
+}

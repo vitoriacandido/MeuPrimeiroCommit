@@ -1,0 +1,83 @@
+using System;
+
+public class Program
+{
+public static void Main()
+{
+Random random = new Random();
+
+int quantidadeJogos = ObterInteiro("Insira a quantidade de jogos que você deseja fazer:
+");
+decimal valorPremio = ObterDecimal("Insira o valor do prêmio: ");
+
+const int quantidadeDeDezenas = 6;
+Console.WriteLine($"{quantidadeJogos} jogos de {quantidadeDeDezenas} dezenas:");
+
+for (int j = 0; j < quantidadeJogos; j++)
+{
+string dezenasSorteadas = GerarJogo(random, quantidadeDeDezenas);
+Console.WriteLine($"Jogo {j + 1}: {dezenasSorteadas}");
+}
+
+// Cálculo da distribuição do prêmio
+decimal premio6Dezenas = valorPremio * 0.75m;
+decimal premio5Dezenas = valorPremio * 0.15m;
+decimal premio4Dezenas = valorPremio * 0.10m;
+
+Console.WriteLine("\nDistribuição do Prêmio:");
+
+Console.WriteLine($"75% do prêmio para quem acertar 6 dezenas: R$
+{premio6Dezenas}");
+Console.WriteLine($"15% do prêmio para quem acertar 5 dezenas: R$
+{premio5Dezenas}");
+Console.WriteLine($"10% do prêmio para quem acertar 4 dezenas: R$
+{premio4Dezenas}");
+}
+
+static int ObterInteiro(string mensagem)
+{
+int valor;
+while (true)
+{
+Console.Write(mensagem);
+if (int.TryParse(Console.ReadLine(), out valor) && valor > 0)
+return valor;
+Console.WriteLine("Número inválido! Por favor, tente informar um número inteiro
+positivo.");
+}
+}
+
+static decimal ObterDecimal(string mensagem)
+{
+decimal valor;
+while (true)
+{
+Console.Write(mensagem);
+if (decimal.TryParse(Console.ReadLine(), out valor) && valor > 0)
+return valor;
+
+Console.WriteLine("Valor inválido! Por favor, tente informar um valor numérico
+positivo.");
+}
+}
+
+static string GerarJogo(Random random, int quantidadeDeDezenas)
+{
+string dezenasSorteadas = "";
+for (int i = 0; i < quantidadeDeDezenas; i++)
+{
+int numero;
+do
+{
+numero = random.Next(1, 61);
+} while (dezenasSorteadas.Contains(numero.ToString("00")));
+
+dezenasSorteadas += numero.ToString("00");
+if (i < quantidadeDeDezenas - 1)
+{
+dezenasSorteadas += ", ";
+}
+}
+return dezenasSorteadas;
+}
+}

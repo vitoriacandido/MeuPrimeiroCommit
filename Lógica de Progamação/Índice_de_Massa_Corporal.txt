@@ -1,0 +1,100 @@
+using System;
+
+class Program
+{
+static void Main()
+{
+Console.Write("Informar o peso (kg): ");
+double peso = Convert.ToDouble(Console.ReadLine());
+
+Console.Write("Informar a altura (m): ");
+double altura = Convert.ToDouble(Console.ReadLine());
+
+// Calcular o IMC
+double imc = peso / (altura * altura);
+
+// Exibir o IMC
+Console.WriteLine($"Seu IMC é: {imc:F2}");
+
+Console.WriteLine("Possui algum dos problemas listados abaixo?
+(Digite 'sim' ou 'não')");
+Console.Write("Diabetes: ");
+bool temDiabetes = Console.ReadLine().ToLower() == "sim";
+
+Console.Write("Problemas nas articulações (Ex.: artrite): ");
+bool temArticulacoes = Console.ReadLine().ToLower() == "sim";
+
+Console.Write("Problemas cardíacos: ");
+bool temCardiacos = Console.ReadLine().ToLower() == "sim";
+
+Console.Write("Obesidade: ");
+bool temObesidade = Console.ReadLine().ToLower() == "sim";
+
+Console.Write("Dores nas costas: ");
+bool temDoresCostas = Console.ReadLine().ToLower() == "sim";
+
+Console.Write("Ansiedade ou estresse: ");
+bool temAnsiedade = Console.ReadLine().ToLower() == "sim";
+
+Console.WriteLine("\nSugestões de atividades físicas:");
+
+if (temDiabetes)
+{
+Console.WriteLine("- Caminhadas rápidas");
+Console.WriteLine("- Natação");
+Console.WriteLine("- Treinamento de resistência (com pesos leves a
+moderados)");
+Console.WriteLine("- Exercícios aeróbicos de baixa intensidade");
+Console.WriteLine("- Yoga (ajuda no controle do estresse e glicemia)");
+}
+
+if (temArticulacoes)
+{
+Console.WriteLine("- Hidroginástica");
+Console.WriteLine("- Caminhadas leves");
+Console.WriteLine("- Ciclismo (com baixa resistência)");
+Console.WriteLine("- Alongamentos e yoga");
+Console.WriteLine("- Pilates (fortalecimento sem sobrecarga
+articular)");
+}
+
+if (temCardiacos)
+{
+Console.WriteLine("- Caminhadas moderadas");
+Console.WriteLine("- Bicicleta leve");
+Console.WriteLine("- Natação");
+Console.WriteLine("- Exercícios de alongamento");
+Console.WriteLine("- Tai Chi (uma forma de exercício suave que
+também ajuda com equilíbrio)");
+}
+
+if (temObesidade)
+{
+Console.WriteLine("- Caminhadas e caminhadas rápidas");
+Console.WriteLine("- Natação");
+Console.WriteLine("- Exercícios em bicicleta ergométrica");
+Console.WriteLine("- Exercícios aeróbicos de baixo impacto");
+Console.WriteLine("- Hidroginástica");
+}
+
+if (temDoresCostas)
+{
+Console.WriteLine("- Caminhada em ritmo leve");
+Console.WriteLine("- Natação ou hidroginástica");
+Console.WriteLine("- Yoga com foco em alongamento e fortalecimento
+do núcleo");
+Console.WriteLine("- Pilates (fortalecimento do núcleo)");
+Console.WriteLine("- Exercícios de alongamento e mobilidade");
+}
+
+if (temAnsiedade)
+{
+Console.WriteLine("- Yoga");
+Console.WriteLine("- Tai Chi");
+Console.WriteLine("- Meditação guiada (combinada com
+alongamentos)");
+Console.WriteLine("- Caminhadas ao ar livre");
+Console.WriteLine("- Dança (para liberar endorfina)");
+}
+}
+}
