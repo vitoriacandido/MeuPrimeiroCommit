@@ -5,7 +5,7 @@ _serve para selecionar um repositorio existente e crir um clone ou copia o repos
  _especifica diretorio, pastas e arquivos sem atributos._
 ## ***cd*** MeuPrimeiroCommit//  
 _utilizado para alterarou exibir o diretorio atual em um sistema operacional._
-## ***code*** 
+## ***code .*** 
 _serve para armazenar e compartilhar dado e informacoes, como URLs e site, numeros de telefone e etc._
 ## ***git status***
 _exibi as condicoes do diretorio de trabalho e da area de staging._
